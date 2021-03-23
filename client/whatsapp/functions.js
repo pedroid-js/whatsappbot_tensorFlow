@@ -16,13 +16,13 @@ class whatsapp {
 
   onReady() {
     return new Promise((resolve) => {
-      this.client.on('ready', () => resolve())
+      this.client.on('ready', resolve)
     })
   }
 
   onMessage() {
     return new Promise((resolve) => {
-      this.client.on('message', msg => resolve(msg))
+      this.client.on('message', resolve)
     })
   }
 
