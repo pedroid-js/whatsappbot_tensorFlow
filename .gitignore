@@ -1,0 +1,6 @@
+client/.env
+client/node_modules/
+chatbot/intents.json
+chatbot/checkpoint
+chatbot/data.pickle
+chatbot/model.*
