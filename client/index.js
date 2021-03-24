@@ -9,8 +9,10 @@ function main() {
   const allowed = process.env.CONTACTS_ALLOWED.split(',')
   whatsapp.onQR()
   whatsapp.onReady().then(() => console.log("Client is ready"))
-  whatsapp.onMessage().then(async msg => {
+  whatsapp.onMessage(async msg => {
+    console.log("MESSAGE FROM", msg.from)
     if (allowed.includes(msg.from)) {
+      console.log(msg.body)
       let answ = ""
       try {
         const { reply } = await post_msg({ msg: msg.body })

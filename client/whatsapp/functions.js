@@ -20,10 +20,8 @@ class whatsapp {
     })
   }
 
-  onMessage() {
-    return new Promise((resolve) => {
-      this.client.on('message', resolve)
-    })
+  onMessage(callback) {
+    this.client.on('message', callback)
   }
 
   send(from, answer) {
