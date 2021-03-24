@@ -10,7 +10,7 @@ class whatsapp {
     this.client.initialize()
   }
 
-  onQR() {
+  QR() {
     this.client.on('qr', qr => qrcode.generate(qr, { small: true }))
   }
 

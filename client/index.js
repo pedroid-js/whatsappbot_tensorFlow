@@ -8,7 +8,7 @@ const log = require('simple-node-logger').createSimpleLogger();
 function main() {
   const whatsapp = new WhatsApp()
   const allowed = process.env.CONTACTS_ALLOWED.split(',')
-  whatsapp.onQR()
+  whatsapp.QR()
   whatsapp.onReady().then(() => console.log("Client is ready"))
   whatsapp.onMessage(async msg => {
     const { from, body } = msg
