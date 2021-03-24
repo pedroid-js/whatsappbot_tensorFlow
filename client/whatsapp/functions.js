@@ -1,7 +1,7 @@
 
 const qrcode = require('qrcode-terminal')
 
-class whatsapp {
+class WhatsApp {
   constructor() {
     this.client = require('./client')
   }
@@ -33,4 +33,4 @@ class whatsapp {
   }
 }
 
-module.exports = whatsapp
+module.exports = WhatsApp
