@@ -105,6 +105,7 @@ def Bot(response):
     tag = labels[results_index]
     response['reply'] = "Lo siento no te he entendido bien, ¿Puedes repetirlo?."
     response['prob'] = str(results[0][results_index])
+    response['failureThreshold'] = 0.75
 
     if results[0][results_index] > 0.75:
         for tg in data["intents"]:

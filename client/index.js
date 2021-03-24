@@ -17,13 +17,17 @@
     if (allowed.includes(from)) {
       let answ = ""
       try {
-        const { reply, prob } = await post_msg({ msg: body })
+        const { 
+          reply,
+          prob, 
+          failureThreshold
+        } = await post_msg({ msg: body })
         try {
           answ = utf8.decode(reply)
         } catch {
           answ = reply
         }
-        if (prob < 0.75 && hasEmoji(body)) {
+        if (prob < failureThreshold && hasEmoji(body)) {
           answ = body
         }
         log.info(
