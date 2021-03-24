@@ -28,7 +28,7 @@
           " PROB: ", prob
         )
       } catch (e) {
-        console.error(e)
+        log.error(e)
       }
       whatsapp.send(from, answ)
     } else {
@@ -40,3 +40,5 @@
   })
   whatsapp.init()
 })();
+
+
