@@ -4,6 +4,7 @@ const qrcode = require('qrcode-terminal')
 class WhatsApp {
   constructor() {
     this.client = require('./client')
+    this.intervals = []
   }
 
   init() {
@@ -24,8 +25,26 @@ class WhatsApp {
     this.client.on('message', callback)
   }
 
-  send(from, answer) {
-    this.client.sendMessage(from, answer)
+  send(to, answer) {
+    this.client.sendMessage(to, answer)
+  }
+
+  sendRecurrent(to, text, time) {
+    this.intervals.push({
+      interval: setInterval(() => {
+        this.client.sendMessage(to, text)
+      }, time),
+      to
+    })
+  }
+
+  stopRecurrent(to) {
+    this.intervals.forEach((obj, i) => {
+      if (obj.to === to) {
+        clearInterval(obj.interval)
+        this.intervals.slice(i, 1)
+      }
+    })
   }
 
   reply(msg, body) {

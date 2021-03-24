@@ -1,17 +1,19 @@
-(function(){
+(function () {
   require('dotenv').config()
 
   const utf8 = require('utf8')
   const WhatsApp = require('./whatsapp/functions')
   const log = require('simple-node-logger').createSimpleLogger()
-  const { post_msg } = require('./assets/js/utils')
+  const { post_msg, hasEmoji } = require('./assets/js/utils')
 
   const whatsapp = new WhatsApp()
   const allowed = process.env.CONTACTS_ALLOWED.split(',')
   whatsapp.QR()
-  whatsapp.onReady().then(() => console.log("Client is ready"))
+  whatsapp.onReady().then(() => {
+    log.info("Client is ready")
+  })
   whatsapp.onMessage(async msg => {
-    const { from, body } = msg
+    let { from, body } = msg
     if (allowed.includes(from)) {
       let answ = ""
       try {
@@ -20,6 +22,9 @@
           answ = utf8.decode(reply)
         } catch {
           answ = reply
+        }
+        if (prob < 0.75 && hasEmoji(body)) {
+          answ = body
         }
         log.info(
           " FROM: ", from,
