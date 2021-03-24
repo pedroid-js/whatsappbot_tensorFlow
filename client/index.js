@@ -18,7 +18,7 @@ function main() {
         const { reply, prob } = await post_msg({ msg: body })
         try {
           answ = utf8.decode(reply)
-        } catch (e) {
+        } catch {
           answ = reply
         }
         log.info(
