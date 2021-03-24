@@ -9,9 +9,7 @@
   const whatsapp = new WhatsApp()
   const allowed = process.env.CONTACTS_ALLOWED.split(',')
   whatsapp.QR()
-  whatsapp.onReady().then(() => {
-    log.info("Client is ready")
-  })
+  whatsapp.onReady().then(() => log.info("Client is ready"))
   whatsapp.onMessage(async msg => {
     let { from, body } = msg
     if (allowed.includes(from)) {
