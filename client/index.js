@@ -31,6 +31,11 @@ function main() {
         console.error(e)
       }
       whatsapp.send(from, answ)
+    } else {
+      log.info(
+        " FROM: ", from,
+        " BODY: ", body
+      )
     }
   })
   whatsapp.init()
