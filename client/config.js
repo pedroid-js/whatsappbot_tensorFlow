@@ -20,15 +20,7 @@ module.exports = {
   },
   "IMAGES": {
     "DEFAULT": {
-      "PATHS": [
-        "./assets/img/forever_alone.png",
-        "./assets/img/couple.png",
-        "./assets/img/hot.png",
-        "./assets/img/timer.png",
-        "./assets/img/help.png",
-        "./assets/img/sex.png",
-        "./assets/img/burguer.png"
-      ]
+      "PATH": "./assets/img/"
     }
   }
 }
