@@ -42,7 +42,7 @@ class WhatsApp {
     this.intervals.forEach((obj, i) => {
       if (obj.to === to) {
         clearInterval(obj.interval)
-        this.intervals.slice(i, 1)
+        this.intervals.splice(i, 1)
       }
     })
   }
