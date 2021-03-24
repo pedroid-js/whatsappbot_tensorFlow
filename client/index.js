@@ -5,7 +5,7 @@ const WhatsApp = require('./whatsapp/functions')
 const { post_msg } = require('./assets/js/utils')
 const log = require('simple-node-logger').createSimpleLogger();
 
-function main() {
+(function(){
   const whatsapp = new WhatsApp()
   const allowed = process.env.CONTACTS_ALLOWED.split(',')
   whatsapp.QR()
@@ -39,6 +39,4 @@ function main() {
     }
   })
   whatsapp.init()
-}
-
-main()
+})();
