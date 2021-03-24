@@ -24,7 +24,7 @@
         log.info(
           " FROM: ", from,
           " BODY: ", body,
-          " REPLY: ", reply,
+          " REPLY: ", answ,
           " PROB: ", prob
         )
       } catch (e) {
