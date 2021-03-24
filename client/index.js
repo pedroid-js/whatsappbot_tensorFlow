@@ -1,11 +1,13 @@
-require('dotenv').config()
-
-const utf8 = require('utf8')
-const WhatsApp = require('./whatsapp/functions')
-const { post_msg } = require('./assets/js/utils')
-const log = require('simple-node-logger').createSimpleLogger();
 
 (function(){
+  require('dotenv').config()
+
+  const utf8 = require('utf8')
+  const WhatsApp = require('./whatsapp/functions')
+  const { post_msg } = require('./assets/js/utils')
+  const log = require('simple-node-logger').createSimpleLogger()
+
+
   const whatsapp = new WhatsApp()
   const allowed = process.env.CONTACTS_ALLOWED.split(',')
   whatsapp.QR()
