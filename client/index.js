@@ -15,9 +15,9 @@
     if (allowed.includes(from)) {
       let answ = ""
       try {
-        const { 
+        const {
           reply,
-          prob, 
+          prob,
           failureThreshold
         } = await post_msg({ msg: body })
         try {
@@ -25,7 +25,8 @@
         } catch {
           answ = reply
         }
-        if (prob < failureThreshold && hasEmoji(body)) {
+        if (parseFloat(prob) < failureThreshold
+          && hasEmoji(body)) {
           answ = body
         }
         log.info(
