@@ -35,10 +35,10 @@
           " REPLY: ", answ,
           " PROB: ", prob
         )
+        whatsapp.send(from, answ)
       } catch (e) {
         log.error(e)
       }
-      whatsapp.send(from, answ)
     } else {
       log.info(
         " FROM: ", from,
